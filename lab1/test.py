@@ -66,7 +66,7 @@ for another_seller in employers['sprzedawca']:
 for dir in os.listdir(task_path):
     if os.path.isdir(os.path.join(task_path, dir)):
         run_cmd_as_user(sprzedawca, f'touch {task_path}/{dir}/nowy_plik')
-#
+
 # g
 reports_path = 'raporty'
 run_cmd_as_user(sprzedawca, f'echo "zawartosc" > {reports_path}/{sprzedawca}/{name_first_task}')
@@ -97,7 +97,6 @@ for dir in os.listdir(task_path):
         run_cmd_as_user(szef_sali, f'touch {reports_path}/{dir}/zobtowreszcie')
 
 # i
-
 for dir in os.listdir(task_path):
     if os.path.isdir(os.path.join(reports_path, dir)):
         for f in os.listdir(f'{reports_path}/{dir}'):

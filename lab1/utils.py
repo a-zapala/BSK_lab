@@ -54,6 +54,13 @@ def read_employers(file_name):
     return employers
 
 
+def create_groups_and_users(employers):
+    for position in employers:
+        run_cmd('groupadd', position)
+        for user_id in employers[position]:
+            run_cmd('useradd', '-g', position, user_id)
+
+
 def setfacl(type, id, permissions, path, *flags):
     acl_str = f'{type}:{id}:{permissions}'
     run_cmd('setfacl', *flags, acl_str, path)

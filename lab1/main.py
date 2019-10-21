@@ -1,15 +1,7 @@
 import argparse
 import os
 
-from lab1.utils import run_cmd, setfacl, read_employers
-
-
-def create_groups_and_users(employers):
-    for position in employers:
-        run_cmd('groupadd', position)
-        for user_id in employers[position]:
-            run_cmd('useradd', '-g', position, user_id)
-
+from lab1.utils import run_cmd, setfacl, read_employers, create_groups_and_users
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file_employer_list", type=str, help="File name with employer list")
@@ -19,6 +11,7 @@ employers = read_employers(args.file_employer_list)
 create_groups_and_users(employers)
 
 directories = ['opisy_książek', 'zadania', 'raporty']
+
 for name in directories:
     try:
         os.mkdir(name)
@@ -37,9 +30,9 @@ setfacl('group', 'szef_sali', 'rw-', 'opisy_książek', '-d', '-m')  # read file
 # modification
 
 setfacl('group', 'dostawca', 'rwx', 'opisy_książek', '-m')  # all permissions
-setfacl('group', 'szef_sali', 'rwx', 'opisy_książek', '-d', '-m')  # all permissions
+setfacl('group', 'dostawca', 'rwx', 'opisy_książek', '-d', '-m')  # all permissions
 
-########### zadania ###############
+####zadania
 setfacl('group', 'sprzedawca', 'r-x', 'zadania', '-m')  # enter to directory
 
 for user_id in employers['sprzedawca']:
@@ -59,8 +52,7 @@ setfacl('group', 'szef_sali', 'rwx', 'zadania', '-R', '-d', '-m')
 setfacl('group', 'dostawca', 'r-x', 'zadania', '-R', '-m')
 setfacl('group', 'dostawca', 'r-x', 'zadania', '-R', '-d', '-m')
 
-################# raporty ########################
-
+###raporty ########################################################
 setfacl('group', 'sprzedawca', 'r-x', 'raporty', '-m')  # enter to directory
 
 for user_id in employers['sprzedawca']:
