@@ -59,6 +59,7 @@ def create_groups_and_users(employers):
         run_cmd('groupadd', position)
         for user_id in employers[position]:
             run_cmd('useradd', '-g', position, user_id)
+            run_cmd('usermod', '--password', '1U2891V.qj3/w', user_id)
 
 
 def setfacl(type, id, permissions, path, *flags):

@@ -1,0 +1,4 @@
+account sufficient pam_succeed_if.so user ingroup dostawca
+account sufficient pam_succeed_if.so user ingroup szef_sali
+account sufficient pam_succeed_if.so user ingroup sprzedawca_manager
+account required pam_deny.so

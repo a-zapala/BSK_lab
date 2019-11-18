@@ -1,7 +1,7 @@
 import argparse
 import os
 
-from lab1.utils import run_cmd, setfacl, read_employers, create_groups_and_users
+from utils import run_cmd, setfacl, read_employers, create_groups_and_users
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file_employer_list", type=str, help="File name with employer list")

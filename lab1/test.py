@@ -1,6 +1,6 @@
 import os
 
-from lab1.utils import read_employers, run_cmd_as_user
+from utils import read_employers, run_cmd_as_user
 
 employers = read_employers('list')
 

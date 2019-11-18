@@ -1,6 +1,6 @@
 import argparse
 
-from lab1.utils import run_cmd, read_employers
+from utils import run_cmd, read_employers
 
 
 def clean_groups_and_users(employers):

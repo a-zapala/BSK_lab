@@ -1,0 +1,2 @@
+%szef_sali ALL=(ALL) /usr/sbin/usermod -a -G sprzedawca_manager *
+%dostawca ALL=(ALL) /usr/sbin/usermod -a -G sprzedawca_manager *
