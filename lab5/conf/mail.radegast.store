@@ -1,0 +1,20 @@
+server {
+	listen 443 ssl http2;
+	server_name mail.radegast.store;
+
+	root /var/www/mail.radegast.store/html;
+
+	ssl on;
+	ssl_certificate /etc/ssl/certs/radegast_service.crt;
+	ssl_certificate_key /etc/ssl/private/radegast_service.key;
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+	
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+}
+
+
