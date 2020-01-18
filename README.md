@@ -1,5 +1,5 @@
 # BSK_lab
-Solution of tasks from Security of Computer System Course at MIM UW. All description in Polish.
+Solution of tasks from Security of Computer System Course at MIM UW. All descriptions in Polish.
 
 
 [Task 1 description](http://smurf.mimuw.edu.pl/node/1873)
